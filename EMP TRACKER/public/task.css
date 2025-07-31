@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #081C29;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-button{
+    background-color: #081C29;
+    border:1px solid #0298d9;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+}
+.edit-button:hover{
+    background-color: #0298d9;
+    color: #081C29;
+    font-weight: 500;
+}
+.delete-button:hover{
+      background-color: #0298d9;
+    color: #081C29;
+    font-weight: 500;
+}
+.delete-button{
+     background-color: #081C29;
+    border:1px solid #0298d9;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 80rem; 
+    padding: 1rem; 
+}
+
+@media (min-width: 768px) { 
+    .page-wrapper {
+        padding: 2rem; 
+    }
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0298d9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+    border-radius: 0.5rem; 
+    padding: 1rem; 
+    margin-bottom: 2rem; 
+    border:2px solid #081C29 ;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+}
+
+.profile-icon {
+    display: inline-block;
+    width: 1.75rem; 
+    height: 1.75rem; 
+    vertical-align: middle;
+    color: #081C29; 
+    fill: currentColor;
+}
+
+.profile-name {
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    color: #1f2937; 
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem; 
+}
+
+.nav-button {
+    color: #081C29; 
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    padding-bottom: 0.25rem; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 550;
+    letter-spacing: 0.8px;
+    font-size: 15px;
+}
+
+.nav-button:hover {
+    color: white; 
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 1.5rem; 
+    font-weight: 400; 
+    color: white; 
+    margin-bottom: 2rem; 
+    display: flex;
+    justify-content: center;
+    align-self: center; 
+    text-transform: uppercase;
+}
+.form-card {
+    background: transparent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+    border-radius: 0.5rem; 
+    padding: 1.5rem; 
+    width: 100%;
+    max-width: 28rem; 
+    margin-left: auto; 
+    margin-right: auto; 
+    border:2px solid #0298d9;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem; 
+    font-weight: 500; 
+    color: #0298d9; 
+    margin-bottom: 0.25rem; 
+}
+
+.input-field {
+    width: 90%;
+    padding: 0.75rem; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 0.5rem; 
+    background-color: #081C29; 
+    color: white; 
+}
+#task-name::placeholder{
+    color: #ffffffdf;
+    font-weight: 100;
+}
+#select-employee{
+
+    width: 95%;
+}
+
+.input-field::placeholder {
+    color: #9ca3af; 
+}
+
+.input-field:focus {
+    outline: 2px solid transparent; 
+    outline-offset: 2px;
+    box-shadow: 0 0 0 calc(2px + 2px) #60a5fa; 
+    border-color: transparent; 
+}
+
+.assign-button {
+    margin-top: 2rem; 
+    width: 100%;
+    background-color: #0298d9; 
+    color: #081C29; 
+    font-weight: 600; 
+    padding: 0.75rem 1.5rem; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    border: none;
+    cursor: pointer;
+}
+.assign-button:hover{
+    background-color: #02acf5;
+}
+
+.section-subtitle {
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: white; 
+    margin-top: 3rem; 
+    margin-bottom: 1.5rem; 
+    align-self: flex-start; 
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    padding-top: 19px;
+}
+
+.table-card {
+    background-color: #081C29;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+    border-radius: 0.5rem; 
+    padding: 1.5rem; 
+    width: 100%;
+    max-width: 56rem; 
+    margin-left: auto; 
+    margin-right: auto; 
+    overflow-x: auto; 
+    border:2px solid #0298d9;
+}
+
+.data-table {
+    min-width: 100%;
+    border-collapse: collapse; 
+}
+
+.data-table thead tr {
+    border-bottom: 1px solid #e5e7eb; 
+}
+
+.table-header {
+    padding: 0.75rem 1.5rem; 
+    text-align: left;
+    font-size: 0.75rem; 
+    font-weight: 500; 
+    color: #0298d9; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em; 
+}
+
+.table-body .table-row {
+    background-color: #081C29;
+    border-bottom: 1px solid #e5e7eb; 
+}
+
+.table-body .table-row:last-child {
+    border-bottom: none; 
+}
+
+.table-data {
+    padding: 1rem 1.5rem; 
+    white-space: nowrap;
+    font-size: 0.875rem; 
+    color: white; 
+}
+
+.action-cell {
+    text-align: left;
+    font-weight: 500; 
+}
+
+.three-dots-button {
+    color: #6b7280; 
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem; 
+}
+
+.three-dots-button:hover {
+    color: #4b5563; 
+}
+
+.three-dots-icon {
+    width: 1rem; 
+    height: 1rem; 
+    fill: currentColor;
+}
+
+.context-menu {
+    position: fixed;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    min-width: 120px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.context-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.context-menu-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.context-menu-button:hover {
+    background-color: #f3f4f6;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #081C29;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+#edit-select-employee{
+    width: 96%;
+}
+.modal-title{
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-overlay.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+    color: #0298d9;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+
+    color: #081C29; 
+    font-weight: 500; 
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    color: #ff0000; 
+}
+
+.logout-icon {
+   height: 20px;
+   color: #081C29;
+}
