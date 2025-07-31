@@ -13,8 +13,8 @@ require('dotenv').config();
 const mongoose= require('mongoose');
 
 mongoose.connect( process.env.URI, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+   // useNewUrlParser: true, 
+  //  useUnifiedTopology: true 
 })
 .then(() => {  
     console.log("✅ MongoDB Connected Successfully For Company"); 
@@ -359,7 +359,6 @@ const jwt=require("jsonwebtoken");
 
 
 
-app.set("view engine","html");
 
 
 app.use(cookieParser());
