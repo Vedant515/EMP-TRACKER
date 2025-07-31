@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     background-color: #081C29;
+
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 80rem; 
+    padding: 1rem; 
+}
+
+@media (min-width: 768px) { 
+    .page-wrapper {
+        padding: 2rem; 
+    }
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px #151515(222, 222, 222, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+    border-radius: 0.5rem; 
+    padding: 1rem; 
+    margin-bottom: 2rem; 
+    border: 2px solid #01A3E8;
+    background-color:#0298d9 ;
+
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+}
+
+.profile-icon {
+    display: inline-block;
+    width: 1.75rem; 
+    height: 1.75rem; 
+    vertical-align: middle;
+    color: black; 
+    fill: currentColor;
+}
+
+.profile-name {
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    color: black; 
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+
+    color: black; 
+    font-weight: 500; 
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.logout-button:hover {
+    font-weight: 600;
+    color: #ff0000; 
+}
+
+.logout-icon {
+    height: 20px; 
+    fill: currentColor;
+}
+
+.admin-panel-title {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem; 
+    font-weight: 350; 
+    color: #ffffff; 
+    margin-top: 4rem;
+    margin-bottom:0.2rem; 
+    align-self: flex-start; 
+}
+
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+@media (min-width: 768px) { 
+    .cards-section {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+.card {
+    width: 250px;
+    height: 310px;
+    margin: 50px;
+
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.9),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #00A0E4;
+    transition: all 0.3s ease-in-out;
+
+}
+.card:hover{
+
+    transform: translateY(-4px) scale(1.05);box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 
+                0 4px 6px #01A3E8
+
+}
+
+.card-title {
+    font-size: 1.4rem; 
+    font-weight:500; 
+    color: white; 
+    margin-bottom: 1rem; 
+}
+
+.card-description {
+    font-weight: 200;
+    font-size: 1.2rem;
+    color: white; 
+
+}
+
+.card-button {
+    margin-top: auto; 
+    color: white; 
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+.card-button:hover {
+    color: #ffffff; 
+
+}
+
+.card-arrow-icon {
+    width: 1.5rem; 
+    height: 1.5rem; 
+    fill: currentColor;
+}
+.huhu{
+    text-decoration: none;
+}

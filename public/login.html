@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <title>EMP Tracker</title>
+</head>
+
+<body>
+ <div id="splash-screen">
+    <h1>EMP TRACKER</h1>
+  </div>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="/api/login" method="post" id="register-form2">
+                <h1>Login Details</h1>
+                <input type="email"  name="useremail1" id="loginemail" placeholder="Email" >
+                <input type="password" name="password" placeholder="Password" id="loginpassword">
+             
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="/employees" method="post" id="register-form1">
+                <h1>Create Account</h1>
+                 <input type="text" name ="name" placeholder="Name" id="name">
+                  <select id="role">
+                       <option value="">Select Role</option>
+                  <option value="admin">Admin</option>
+                  <option value="employee">Employee</option>
+                  </select>
+                <input type="email" name ="useremail1" placeholder="Email" id="useremail1" >
+                <input type="password" name ="password" placeholder="Password"  id="password">
+                <input type="password" name ="repassword" placeholder="Re-Enter Password" id="repassword">
+                <input type="text" name="companyId" placeholder="Company ID" id="companyId" style="display: none;">
+                
+                <button type="submit"  >Submit</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                  <h2 id="emptracker">EMP TRACKER</h2>
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Back</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                     <h2 id="emptracker">EMP TRACKER</h2>
+                    <h1>Welcome Back!</h1>
+                    <p>Already Created Account !</p>
+                    <div class="lgbtn">
+                    <button class="hidden" id="register">Login</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+ <h4 id="madeby">Made By Vedant & Krushna</h4>
+   
+<style>
+  #madeby{
+    padding-top: 60px;
+    color: #333333b9;
+}
+</style>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const splash = document.getElementById("splash-screen");
+  setTimeout(() => {
+    splash.style.opacity = 0;
+    setTimeout(() => splash.remove(), 400);
+  }, 1100);
+});
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById("role").addEventListener("change", function () {
+  const role = this.value;
+  const companyIdInput = document.getElementById("companyId");
+
+  if (role === "admin") {
+    // Generate new company ID (admin ka kam)
+    companyIdInput.style.display = "block";
+    companyIdInput.placeholder = "Create a new Company ID";
+  } else {
+    // Employee to enter existing company ID
+    companyIdInput.style.display = "block";
+    companyIdInput.placeholder = "Enter your Company ID (given by admin)";
+  }
+});
+
+        
+    document.getElementById("register-form1").addEventListener("submit", async (e) => {
+         e.preventDefault();
+         const companyId = document.getElementById("companyId").value;
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("useremail1").value;
+        const role = document.getElementById("role").value;
+        const status = "pending";
+         const password = document.getElementById("password").value;
+    const repassword = document.getElementById("repassword").value;
+
+   
+
+        try {
+            const res = await fetch("/employees", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, useremail1: email, role, status , password, repassword: password ,  companyId})
+            });
+
+            const data = await res.json();
+            localStorage.setItem("token", data.token);
+           
+            if (res.ok) {
+                localStorage.setItem("newEmployee", JSON.stringify(data));
+                localStorage.setItem("token", data.token);
+                 localStorage.setItem("user", JSON.stringify(data.user));
+               alert("Sign up Successfull");
+                window.location.href = "/login.html";
+            } else {
+                alert("Signup failed .... Check Your Credentials"); 
+               
+            }
+        } catch (err) {
+            alert("Something went wrong");
+        }
+    });
+ 
+
+ document.getElementById("register-form2").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+const email = document.getElementById("loginemail").value;
+const password = document.getElementById("loginpassword").value;
+
+const res = await fetch("/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ useremail1: email, password }),
+});
+
+const data = await res.json();
+
+
+
+
+if (res.ok) {
+  localStorage.setItem("token", data.token); 
+  localStorage.setItem("user", JSON.stringify(data.user));
+  
+ 
+
+      if (data.user.role === "admin") {
+        window.location.href = "/home.html";
+      } else if (data.user.role === "employee") {
+        if (data.user.status === "approved") {
+          window.location.href = "/emp.html";
+        } else {
+          alert("Your account is not approved yet.");
+        }
+      }
+   
+
+
+} else {
+  alert(data.error); 
+}
+
+ });
+ });
+</script>
+
+
+    <script src="login.js"></script>
+</body>
+
+</html>
